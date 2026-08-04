@@ -1,0 +1,28 @@
+# target_order.txt - target order map
+#
+# One line per destination position (1-based).
+# Line N = ORIGINAL slide index that must end up at position N.
+# Empty lines and lines starting with '#' are ignored.
+#
+# Example: deck of 6 slides, we want a section swap and a rotation.
+# Current order:
+#   1  Intro
+#   2  Section A - theory
+#   3  Section A - task
+#   4  Section B - theory
+#   5  Section B - task
+#   6  Outro
+#
+# Desired order:
+#   1  Intro
+#   2  Section B - theory      (old slide 4)
+#   3  Section B - task        (old slide 5)
+#   4  Section A - theory      (old slide 2)
+#   5  Section A - task        (old slide 3)
+#   6  Outro
+1
+4
+5
+2
+3
+6
