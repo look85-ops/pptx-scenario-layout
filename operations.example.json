@@ -1,0 +1,21 @@
+{
+  "operations": [
+    {
+      "op": "edit",
+      "find": "Beta task",
+      "replace": { "Beta task": "Beta task v2" },
+      "tag": "Изменено"
+    },
+    {
+      "op": "clone",
+      "from": 2,
+      "replace": { "Beta theory": "New theory" },
+      "tag": "Новый",
+      "to": 4
+    },
+    {
+      "op": "hide",
+      "find": "Omega outro"
+    }
+  ]
+}
