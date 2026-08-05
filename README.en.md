@@ -20,11 +20,9 @@ content intact.
 
 ## Why
 
-In corporate courses the scenario often arrives **after** the deck is laid out.
-You need to add new content (by cloning templates), update old content, hide
-the obsolete slides and reorder everything to follow the scenario. By hand
-that's hours of work and errors: broken numbering, lost hidden slides, broken
-layouts.
+When actualizing training courses, classroom-based and beyond: you need to add
+new content, update old content, hide the obsolete and reorder everything to
+follow the scenario. By hand that's hours of work, frayed nerves and mistakes.
 
 ## Full workflow
 
