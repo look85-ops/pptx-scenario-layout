@@ -3,7 +3,10 @@
 **English:** this file · **Русский:** [README.md](README.md)
 
 Update PowerPoint master presentations for corporate courses driven by a lesson
-scenario. Proven on decks of 200–500 slides. Three pillars:
+scenario. **Two-phase pipeline:** phase 1 generates a course scenario from source
+docs via an LLM (`generate_scenario.py`); phase 2 actualizes the master
+presentation against that scenario (`update.ps1` / `layout.ps1` /
+`validate.ps1`). Proven on decks of 200–500 slides. Three pillars of phase 2:
 
 1. **Clone, don't create.** New content is never built from scratch — it's a
    copy of an existing template slide with the text replaced. Branding (frame,
@@ -27,8 +30,23 @@ follow the scenario. By hand that's hours of work, frayed nerves and mistakes.
 ## Full workflow
 
 ```
-scenario (docx)  ->  operations (clone/edit/hide)  ->  order map  ->  validation
+source docs (docx)  ->  scenario (LLM)  ->  operations (clone/edit/hide)  ->  order map  ->  validation
 ```
+
+0. **Generate the scenario** (`generate_scenario.py`). Sources + methodology
+   instruction in, a day scenario out, in a "Challenge — Insight — Ownership"
+   structure with a full slide description:
+
+   ```bash
+   # prompt only (copy into Claude/ChatGPT)
+   python generate_scenario.py --module М4 --day 1 --sources "source.docx" --prompt-only
+   # auto-generate via LLM (needs LLM_API_KEY in the environment)
+   python generate_scenario.py --module М4 --day 1 --sources "source.docx" --llm deepseek/deepseek-chat
+   ```
+
+   Methodology instruction is `INSTRUCTION_course.md` next to the script, or a
+   custom path via `--instruction`. Requirements: Python 3.8+, `python-docx`,
+   `requests`; for the LLM path — `llm_gateway.py` (shipped in the repo).
 
 1. **Analyze the scenario.** New content is marked in the scenario (e.g. by
    color). Build a list of operations: what to add, change, hide. Do not put
